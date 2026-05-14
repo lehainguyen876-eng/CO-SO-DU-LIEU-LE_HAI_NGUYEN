@@ -1,0 +1,15 @@
+CREATE DATABASE IF NOT EXISTS session3_vandung2;
+USE session3_vandung2;
+
+CREATE TABLE IF NOT EXISTS SHIPPERS (
+    ShipperID INT PRIMARY KEY AUTO_INCREMENT,
+    ShipperName VARCHAR(100),
+    Phone VARCHAR(20)
+);
+
+INSERT INTO SHIPPERS (ShipperName, Phone) 
+VALUES 
+    ('Giao Hàng Nhanh', '0901234567'),
+    ('Viettel Post', '0912345678');
+
+SELECT * FROM SHIPPERS;
