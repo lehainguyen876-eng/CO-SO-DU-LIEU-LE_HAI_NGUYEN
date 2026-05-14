@@ -1,0 +1,20 @@
+CREATE DATABASE IF NOT EXISTS chuyen_sau;
+USE chuyen_sau;
+
+CREATE TABLE CUSTOMERS (
+    CustomerID INT PRIMARY KEY AUTO_INCREMENT,
+    FullName VARCHAR(100) NOT NULL,
+    Email VARCHAR(100) UNIQUE
+);
+
+CREATE TABLE ORDERS (
+    OrderID INT PRIMARY KEY AUTO_INCREMENT,
+    OrderDate DATETIME DEFAULT CURRENT_TIMESTAMP, 
+    TotalAmount DECIMAL(15, 2) NOT NULL,
+    CustomerID INT NOT NULL,                       
+    
+    CONSTRAINT fk_customer_order 
+    FOREIGN KEY (CustomerID) REFERENCES CUSTOMERS(CustomerID),
+    
+    CONSTRAINT chk_total CHECK (TotalAmount > 0)
+);
